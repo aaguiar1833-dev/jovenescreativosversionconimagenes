@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portal de noticias que conecta tecnología, ciencia, innovación y cultura. Catálogo completo, asistente virtual de búsqueda, contacto, panel de administración y apéndice.">
+<title>Jóvenes Creativos · Portal de Noticias, Tecnología y Cultura</title>
+<meta name="theme-color" content="#fbfaf6">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%A1%3C/text%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+<noscript><p style="padding:16px;background:#fdeee2;text-align:center">Este sitio necesita JavaScript para mostrar el catálogo, el asistente y el panel de administración.</p></noscript>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="cabecera">
+  <div class="cabecera-interior">
+    <a class="logo-container" data-pagina="inicio" aria-label="Jóvenes Creativos, ir al inicio">
+  <span class="marca">Jóvenes Creativos</span>
+</a>
+
+    <nav class="menu-principal" aria-label="Principal">
+      <ul>
+        <li><a data-pagina="inicio" data-nav="inicio" aria-current="page">Inicio</a></li>
+        <li><a data-pagina="noticias" data-nav="noticias">Noticias</a></li>
+        <li><a data-pagina="asistente" data-nav="asistente">Asistente</a></li>
+        <li><a data-pagina="contacto" data-nav="contacto">Contacto</a></li>
+        <li><a data-pagina="admin" data-nav="admin">Admin</a></li>
+        <li><a data-pagina="apendice" data-nav="apendice">Apéndice</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <div class="pagina activa" id="pagina-inicio">
+
+    <section class="bienvenida contenedor">
+      <div class="bienvenida-texto">
+        <span class="eyebrow">Portal digital · Edición 2026</span>
+        <h1>Tecnología y cultura, en la misma conversación</h1>
+        <p class="lead">
+          Nuestro portal nace de la idea de crear un medio digital que vaya más allá de las noticias
+          tradicionales. El objetivo es conectar tecnología, ciencia, innovación y cultura en un mismo espacio,
+          con una mirada cercana, dinámica y accesible.
+        </p>
+        <div class="acciones">
+          <a class="boton boton-primario" data-pagina="noticias">Leer las noticias</a>
+          <a class="boton boton-secundario" data-pagina="asistente">Preguntar al asistente</a>
+        </div>
+      </div>
+
+      <div class="duo" aria-hidden="true">
+        <span class="circulo c-tec"></span>
+        <span class="circulo c-cul"></span>
+        <span class="interseccion"></span>
+        <b class="etq etq-tec">Tecnología</b>
+        <b class="etq etq-portal">Portal</b>
+        <b class="etq etq-cul">Cultura</b>
+      </div>
+    </section>
+
+    <section class="por-que franja">
+      <div class="contenedor por-que-grid">
+        <div>
+          <span class="eyebrow">Nuestra mirada</span>
+          <h2>¿Por qué la creamos?</h2>
+          <p class="texto-largo">
+            Creemos que atender los cambios tecnológicos también significa comprender cómo transforman la sociedad,
+            nuestra forma de comunicarnos, trabajar, crear y vivir. Por eso contamos tendencias y acontecimientos
+            relevantes desde una mirada cercana, dinámica y accesible.
+          </p>
+        </div>
+
+        <ul class="pilares">
+          <li>
+            <strong>Tendencias que importan</strong>
+            <span>Proyecto final avanzado. Qué está cambiando y qué significa para la gente.</span>
+          </li>
+          <li>
+            <strong>Ciencia e innovación</strong>
+            <span>Del laboratorio a la vida cotidiana, sin tecnicismos.</span>
+          </li>
+          <li>
+            <strong>Cultura cercana</strong>
+            <span>Patrimonio, música y proyectos jóvenes de nuestro entorno.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ultimas contenedor" aria-labelledby="titulo-ultimas">
+      <span class="eyebrow">Selección del día</span>
+      <h2 id="titulo-ultimas">Lo que puedes leer hoy</h2>
+
+      <div class="temas">
+        <div class="tema tema-tec">
+          <h3>Tecnología</h3>
+          <ul class="lista-notas" data-lista="Tecnología"></ul>
+        </div>
+        <div class="tema tema-cul">
+          <h3>Cultura</h3>
+          <ul class="lista-notas" data-lista="Cultura"></ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <div class="pagina" id="pagina-noticias">
+    <section class="seccion-noticias">
+      <div class="contenedor">
+        <div class="titulo-seccion">
+          <div>
+            <span class="eyebrow">Catálogo completo</span>
+            <h2>Portal de Noticias</h2>
+          </div>
+        </div>
+
+        <div class="contenedor-noticias-layout">
+
+          <aside class="sidebar-noticias" aria-label="Listado de noticias">
+            <h2>Categorías y noticias</h2>
+
+            <label class="visualmente-oculto" for="buscador">Buscar una noticia</label>
+            <input type="search" id="buscador" placeholder="Buscar una noticia…" autocomplete="off">
+
+            <div class="filtros" role="group" aria-label="Filtrar por categoría">
+              <button type="button" class="filtro" data-filtro="todas" aria-pressed="true">Todas</button>
+              <button type="button" class="filtro" data-filtro="Tecnología" aria-pressed="false">Tecnología</button>
+              <button type="button" class="filtro" data-filtro="Cultura" aria-pressed="false">Cultura</button>
+            </div>
+
+            <ul id="lista-noticias" class="lista-lateral">
+              <li data-cat="Tecnología" data-tags="MIT Technology Review tecnologías 2026 SXSW innovación disruptivas Austin">
+                <a data-id="n1"><span class="punto" aria-hidden="true"></span><span class="nombre">MIT: Tecnologías 2026</span><span class="meta">Tecnología</span></a>
+              </li>
+              <li data-cat="Tecnología" data-tags="baterías sodio litio energía almacenamiento renovables estado sólido vehículos eléctricos">
+                <a data-id="n2"><span class="punto" aria-hidden="true"></span><span class="nombre">Baterías de Sodio</span><span class="meta">Tecnología</span></a>
+              </li>
+              <li data-cat="Tecnología" data-tags="edición genética base editing ADN genes medicina de precisión terapia embriones bioética salud">
+                <a data-id="n3"><span class="punto" aria-hidden="true"></span><span class="nombre">Edición Genética</span><span class="meta">Tecnología</span></a>
+              </li>
+              <li data-cat="Tecnología" data-tags="IA inteligencia artificial software programación código centros de datos testing hiperescala">
+                <a data-id="n4"><span class="punto" aria-hidden="true"></span><span class="nombre">IA en Software</span><span class="meta">Tecnología</span></a>
+              </li>
+              <li data-cat="Tecnología" data-tags="espacio estaciones espaciales órbita captura de carbono CO2 clima sostenibilidad turismo espacial">
+                <a data-id="n5"><span class="punto" aria-hidden="true"></span><span class="nombre">Estaciones Espaciales</span><span class="meta">Tecnología</span></a>
+              </li>
+              <li data-cat="Cultura" data-tags="patrimonio día del patrimonio bicentenario 2025 historia Uruguay museos identidad">
+                <a data-id="n6"><span class="punto cul" aria-hidden="true"></span><span class="nombre">Día del Patrimonio 2025</span><span class="meta">Cultura</span></a>
+              </li>
+              <li data-cat="Cultura" data-tags="Sanguinetti Memorias de una pasión libro arte Iturria Ahunchain Sala Azul Intendencia">
+                <a data-id="n7"><span class="punto cul" aria-hidden="true"></span><span class="nombre">Libro Sanguinetti</span><span class="meta">Cultura</span></a>
+              </li>
+              <li data-cat="Cultura" data-tags="Bellas Artes imputación injuria MEC justicia Wainstein profesor incitación al odio">
+                <a data-id="n8"><span class="punto cul" aria-hidden="true"></span><span class="nombre">Imputación Bellas Artes</span><span class="meta">Cultura</span></a>
+              </li>
+              <li data-cat="Cultura" data-tags="Movida Joven jóvenes artistas inscripciones convocatoria categorías arte">
+                <a data-id="n9"><span class="punto cul" aria-hidden="true"></span><span class="nombre">Movida Joven</span><span class="meta">Cultura</span></a>
+              </li>
+              <li data-cat="Cultura" data-tags="Rubén Rada El Negro música candombe homenaje El Kinto Tótem OPA legado">
+                <a data-id="n10"><span class="punto cul" aria-hidden="true"></span><span class="nombre">Homenaje a Rubén Rada</span><span class="meta">Cultura</span></a>
+              </li>
+            </ul>
+
+            <p id="sin-resultados" class="sin-resultados" hidden>
+              No hay noticias con esa búsqueda. Probá con otra palabra o
+              <button type="button" id="limpiar-filtros">mostrá todas</button>.
+            </p>
+          </aside>
+          <div id="contenido-noticia" class="visor-noticia">
+
+            <section id="bienvenida-visor" class="bienvenida-visor">
+              <h1>Portal de Noticias</h1>
+              <p>
+                Seleccioná una noticia del menú lateral para leer el artículo completo. Si no sabés por dónde
+                empezar, probá con una de estas:
+              </p>
+              <ul>
+                <li><a data-id="n1">El MIT Technology Review anticipa las tecnologías que transformarán los próximos años</a></li>
+                <li><a data-id="n2">Las baterías de sodio buscan desafiar el dominio del litio</a></li>
+                <li><a data-id="n6">Día del Patrimonio 2025: el bicentenario como eje de la celebración</a></li>
+                <li><a data-id="n10">Homenaje a Rubén Rada: el legado del Negro en la música uruguaya</a></li>
+              </ul>
+            </section>
+
+            <article class="nota" id="n1" tabindex="-1">
+              <span class="chip">Tecnología</span>
+              <h1>El MIT Technology Review anticipa las tecnologías que transformarán los próximos años</h1>
+              <p class="meta-nota">Innovación · Publicado el 12 de marzo de 2026</p>
+              <p class="lead">
+                La lista de 2026 pone el foco en infraestructuras de gran escala, nuevas fuentes de energía,
+                medicina de precisión y debates éticos.
+              </p>
+
+              <figure class="foto">
+                <img src="imagenes/feria-robot.jpeg" alt="Señor junto a un robot en una feria de tecnologías disruptivas de 2026" loading="lazy"
+                     onerror="this.style.display='none';this.parentElement.classList.add('sin-imagen')">
+                <figcaption class="foto-placeholder">
+                  <span class="ph-icono">🖼</span>
+                  <strong>Espacio reservado para la imagen</strong>
+                  <span>imagenes/feria-robot.jpeg</span>
+                </figcaption>
+              </figure>
+
+              <div class="cuerpo">
+                <p>El MIT Technology Review presentó su esperada selección de las diez tecnologías más disruptivas de 2026. El anuncio se realizó el martes 10 de marzo durante el festival SXSW, en Austin, Estados Unidos, uno de los principales encuentros internacionales dedicados a la tecnología, la innovación, el cine, la música y la cultura.</p>
+                <p>La lista de este año marca un cambio significativo respecto de ediciones anteriores. Aunque la inteligencia artificial continúa ocupando un lugar central, el análisis pone especial énfasis en infraestructuras de gran escala, nuevas fuentes de energía, medicina de precisión y tecnologías que plantean importantes debates éticos.</p>
+
+              <figure class="foto">
+                <img src="imagenes/antel-5g.jpeg" alt="Evento con asistentes frente a un muro iluminado con el logo de 5G" loading="lazy"
+                     onerror="this.style.display='none';this.parentElement.classList.add('sin-imagen')">
+                <figcaption class="foto-placeholder">
+                  <span class="ph-icono">🖼</span>
+                  <strong>Espacio reservado para la imagen</strong>
+                  <span>imagenes/antel-5g.jpeg</span>
+                </figcaption>
+              </figure>
+                <p>Entre los avances destacados aparecen las baterías de sodio, los reactores nucleares modulares, la edición genética de precisión, los centros de datos diseñados para inteligencia artificial y las estaciones espaciales comerciales. También se incluyen los sistemas de captura de carbono y los llamados compañeros de inteligencia artificial, capaces de mantener conversaciones y ofrecer apoyo emocional.</p>
+                <p>Según los editores de MIT Technology Review, la lista no busca simplemente anticipar tendencias, sino identificar desarrollos que ya alcanzaron la madurez suficiente para producir efectos concretos en la economía, la ciencia y la vida cotidiana.</p>
+              </div>
+
+              <nav class="pasar" aria-label="Otras noticias">
+                <a class="sig" data-id="n2"><small>Siguiente</small><strong>Baterías de Sodio</strong></a>
+              </nav>
+            </article>
+
+            <article class="nota" id="n2" tabindex="-1">
+              <span class="chip">Tecnología</span>
+              <h1>Las baterías de sodio buscan desafiar el dominio del litio</h1>
+              <p class="meta-nota">Innovación y energía</p>
+              <p class="lead">
+                Más abundante y barato que el litio, el sodio puede abaratar el almacenamiento de energía
+                a gran escala.
+              </p>
+
+              <figure class="foto">
+                <img src="imagenes/nube.jpeg" alt="Persona sosteniendo una nube digital rodeada de íconos de dispositivos y almacenamiento de datos" loading="lazy"
+                     onerror="this.style.display='none';this.parentElement.classList.add('sin-imagen')">
+                <figcaption class="foto-placeholder">
+                  <span class="ph-icono">🖼</span>
+                  <strong>Espacio reservado para la imagen</strong>
+                  <span>imagenes/nube.jpeg</span>
+                </figcaption>
+              </figure>
+
+              <div class="cuerpo">
+                <p>Las baterías de sodio se convirtieron en una de las principales novedades de la lista de tecnologías disruptivas elaborada por el MIT Technology Review para 2026. El desarrollo es observado con especial interés porque podría reducir la dependencia mundial del litio, un recurso estratégico cuya demanda aumentó debido a la expansión de los vehículos eléctricos y las energías renovables.</p>
+                <p>El sodio presenta una ventaja fundamental: es mucho más abundante y, en general, menos costoso que el litio. Esta característica podría facilitar la fabricación de baterías destinadas al almacenamiento de electricidad a gran escala, especialmente en sistemas vinculados con parques solares y eólicos. Además, este tipo de baterías ofrece un desempeño potencialmente más estable en temperaturas extremas y puede presentar mejores condiciones de seguridad en determinadas aplicaciones.</p>
+                <p>Aunque todavía enfrenta desafíos relacionados con la densidad energética y la eficiencia, los avances recientes acercan la tecnología a una utilización comercial más amplia.</p>
+                <p>El informe también destaca las baterías de estado sólido, que reemplazan los electrolitos líquidos por materiales sólidos. Esta innovación promete reducir riesgos de incendio, aumentar la autonomía y permitir cargas más rápidas. La combinación de ambas tecnologías podría modificar la estructura del mercado energético y acelerar la transición hacia sistemas de transporte y almacenamiento menos dependientes de combustibles fósiles.</p>
+              </div>
+
+              <nav class="pasar" aria-label="Otras noticias">
+                <a class="ant" data-id="n1"><small>Anterior</small><strong>MIT: Tecnologías 2026</strong></a>
+                <a class="sig" data-id="n3"><small>Siguiente</small><strong>Edición Genética</strong></a>
+              </nav>
+            </article>
+            <article class="nota" id="n3" tabindex="-1">
+              <span class="chip">Tecnología</span>
+              <h1>La medicina de precisión y la edición genética abren nuevas posibilidades</h1>
+              <p class="meta-nota">Salud y bioética</p>
+              <p class="lead">
+                El «base editing» permite corregir mutaciones puntuales del ADN, pero también plantea
+                debates éticos de fondo.
+              </p>
+
+              <figure class="foto">
+                <img src="imagenes/aplicaciones.jpeg" alt="Mano tocando íconos digitales de dispositivos y servicios conectados" loading="lazy"
+                     onerror="this.style.display='none';this.parentElement.classList.add('sin-imagen')">
+                <figcaption class="foto-placeholder">
+                  <span class="ph-icono">🖼</span>
+                  <strong>Espacio reservado para la imagen</strong>
+                  <span>imagenes/aplicaciones.jpeg</span>
+                </figcaption>
+              </figure>
+
+              <div class="cuerpo">
+                <p>La medicina de precisión ocupa un lugar destacado entre las tecnologías que podrían generar mayores cambios durante los próximos años. El MIT Technology Review señaló especialmente los tratamientos genéticos hiperpersonalizados basados en técnicas como el «base editing», una herramienta capaz de modificar una letra específica del ADN. A diferencia de métodos anteriores, esta tecnología busca corregir mutaciones puntuales sin alterar grandes segmentos del material genético.</p>
+                <p>El objetivo es tratar enfermedades hereditarias poco frecuentes que, hasta hace pocos años, contaban con escasas alternativas terapéuticas. El avance abre la posibilidad de desarrollar tratamientos adaptados al perfil genético y molecular de cada paciente. En lugar de utilizar medicamentos diseñados para grandes grupos de población, la medicina podría avanzar hacia terapias específicas para determinadas mutaciones y características biológicas.</p>
+                <p>Sin embargo, el progreso científico también plantea interrogantes de gran importancia. El informe menciona la puntuación de embriones, una técnica que utiliza información genética para estimar riesgos de enfermedades y ciertos rasgos complejos. Sus posibles aplicaciones generan preocupación por la discriminación, la desigualdad en el acceso y el riesgo de convertir la reproducción en un proceso de selección basado en criterios sociales o comerciales.</p>
+                <p>El desafío será combinar innovación médica, regulación pública y principios bioéticos que protejan la dignidad y los derechos de las personas.</p>
+              </div>
+
+              <nav class="pasar" aria-label="Otras noticias">
+                <a class="ant" data-id="n2"><small>Anterior</small><strong>Baterías de Sodio</strong></a>
+                <a class="sig" data-id="n4"><small>Siguiente</small><strong>IA en Software</strong></a>
+              </nav>
+            </article>
+            <article class="nota" id="n4" tabindex="-1">
+              <span class="chip">Tecnología</span>
+              <h1>La inteligencia artificial se instala en el corazón del desarrollo de software</h1>
+              <p class="meta-nota">Programación y datos</p>
+              <p class="lead">
+                Asistentes que escriben código, prueban y documentan: el oficio de programar cambia de forma
+                acelerada.
+              </p>
+
+              <figure class="foto">
+                <img src="imagenes/chip-uruguay.jpeg" alt="Chip electrónico con la bandera de Uruguay" loading="lazy"
+                     onerror="this.style.display='none';this.parentElement.classList.add('sin-imagen')">
+                <figcaption class="foto-placeholder">
+                  <span class="ph-icono">🖼</span>
+                  <strong>Espacio reservado para la imagen</strong>
+                  <span>imagenes/chip-uruguay.jpeg</span>
+                </figcaption>
+              </figure>
+
+              <div class="cuerpo">
+                <p>La inteligencia artificial dejó de ser una herramienta auxiliar para convertirse en una parte estructural del desarrollo de software. Los asistentes actuales no solo completan líneas de código: proponen arquitecturas, escriben pruebas automatizadas, detectan errores y generan documentación técnica en segundos.</p>
+                <p>El cambio también se percibe en la infraestructura. Los centros de datos diseñados específicamente para entrenar y ejecutar modelos de inteligencia artificial crecieron en escala y en consumo energético, lo que obligó a repensar sistemas de refrigeración, redes eléctricas y ubicación geográfica de estas instalaciones.</p>
+
+              <div class="fotos-dobles">
+              <figure class="foto">
+                <img src="imagenes/zonamerica.jpeg" alt="Vista aérea de Zonamérica, parque empresarial y tecnológico de Uruguay" loading="lazy"
+                     onerror="this.style.display='none';this.parentElement.classList.add('sin-imagen')">
+                <figcaption class="foto-placeholder">
+                  <span class="ph-icono">🖼</span>
+                  <strong>Espacio reservado para la imagen</strong>
+                  <span>imagenes/zonamerica.jpeg</span>
+                </figcaption>
+              </figure>
+              <figure class="foto">
+                <img src="imagenes/jovenes-computadora.jpeg" alt="Niños frente a computadoras en un evento de Aldea Digital" loading="lazy"
+                     onerror="this.style.display='none';this.parentElement.classList.add('sin-imagen')">
+                <figcaption class="foto-placeholder">
+                  <span class="ph-icono">🖼</span>
+                  <strong>Espacio reservado para la imagen</strong>
+                  <span>imagenes/jovenes-computadora.jpeg</span>
+                </figcaption>
+              </figure>
+              </div>
+                <p>El debate, sin embargo, no es solo técnico. La comunidad de desarrolladores discute cómo cambia el aprendizaje del oficio, qué lugar ocupan la revisión humana y la calidad del código generado, y de qué manera las empresas deberían rendir cuentas cuando un sistema automático produce fallas.</p>
+              </div>
+
+              <nav class="pasar" aria-label="Otras noticias">
+                <a class="ant" data-id="n3"><small>Anterior</small><strong>Edición Genética</strong></a>
+                <a class="sig" data-id="n5"><small>Siguiente</small><strong>Estaciones Espaciales</strong></a>
+              </nav>
+            </article>
+            <article class="nota" id="n5" tabindex="-1">
+              <span class="chip">Tecnología</span>
+              <h1>Estaciones espaciales comerciales y captura de carbono: la órbita como nuevo territorio</h1>
+              <p class="meta-nota">Espacio y clima</p>
+              <p class="lead">
+                Con el fin de la era de la Estación Espacial Internacional, empresas privadas preparan sus
+                propias plataformas orbitales.
+              </p>
+
+              <figure class="foto">
+                <img src="imagenes/hombre-computadora.jpeg" alt="Programador frente a varias pantallas con código y datos" loading="lazy"
+                     onerror="this.style.display='none';this.parentElement.classList.add('sin-imagen')">
+                <figcaption class="foto-placeholder">
+                  <span class="ph-icono">🖼</span>
+                  <strong>Espacio reservado para la imagen</strong>
+                  <span>imagenes/hombre-computadora.jpeg</span>
+                </figcaption>
+              </figure>
+
+              <div class="cuerpo">
+                <p>Las estaciones espaciales comerciales aparecen en la lista de tecnologías disruptivas de 2026 como una de las apuestas más ambiciosas. Con el horizonte del retiro de la Estación Espacial Internacional, distintas empresas trabajan en plataformas orbitales privadas destinadas a la investigación científica, la producción de materiales y el turismo espacial.</p>
+                <p>El informe también menciona los sistemas de captura de carbono, pensados para retirar dióxido de carbono de la atmósfera y almacenarlo de forma segura. Se trata de una familia de tecnologías con costos todavía elevados, pero considerada clave para complementar la reducción de emisiones.</p>
+                <p>El cruce entre ambas líneas de desarrollo abre preguntas regulatorias: quién autoriza, quién fiscaliza y bajo qué criterios ambientales se evalúan las actividades que ocurren fuera de las fronteras de cualquier país.</p>
+              </div>
+
+              <nav class="pasar" aria-label="Otras noticias">
+                <a class="ant" data-id="n4"><small>Anterior</small><strong>IA en Software</strong></a>
+                <a class="sig" data-id="n6"><small>Siguiente</small><strong>Día del Patrimonio 2025</strong></a>
+              </nav>
+            </article>
+            <article class="nota" id="n6" tabindex="-1">
+              <span class="chip chip-cul">Cultura</span>
+              <h1>Día del Patrimonio 2025: el bicentenario como eje de la celebración</h1>
+              <p class="meta-nota">Patrimonio e identidad</p>
+              <p class="lead">
+                Museos abiertos, recorridos guiados y actividades barriales para mirar el patrimonio desde
+                la vida cotidiana.
+              </p>
+
+              <figure class="foto">
+                <img src="imagenes/candombe.jpeg" alt="Comparsa de tambores de candombe desfilando por una calle de Montevideo" loading="lazy"
+                     onerror="this.style.display='none';this.parentElement.classList.add('sin-imagen')">
+                <figcaption class="foto-placeholder">
+                  <span class="ph-icono">🖼</span>
+                  <strong>Espacio reservado para la imagen</strong>
+                  <span>imagenes/candombe.jpeg</span>
+                </figcaption>
+              </figure>
+
+              <div class="cuerpo">
+                <p>El Día del Patrimonio volvió a convocar a miles de personas en todo el país con una programación que combinó edificios históricos, recorridos urbanos y propuestas barriales. En esta edición, el bicentenario funcionó como hilo conductor para revisar cómo se construyó la identidad uruguaya y qué huellas quedaron en la arquitectura, la música y las prácticas sociales.</p>
+                <p>La jornada incluyó aperturas especiales de museos, visitas guiadas a cargo de vecinos y colectivos culturales, y actividades pensadas para públicos diversos. Muchas de las propuestas se organizaron de forma descentralizada, con énfasis en barrios y localidades que no siempre aparecen en los circuitos turísticos tradicionales.</p>
+
+              <figure class="foto">
+                <img src="imagenes/teatro-solis.jpeg" alt="Fachada del Teatro Solís, en Montevideo" loading="lazy"
+                     onerror="this.style.display='none';this.parentElement.classList.add('sin-imagen')">
+                <figcaption class="foto-placeholder">
+                  <span class="ph-icono">🖼</span>
+                  <strong>Espacio reservado para la imagen</strong>
+                  <span>imagenes/teatro-solis.jpeg</span>
+                </figcaption>
+              </figure>
+                <p>Para los organizadores, el objetivo es que el patrimonio deje de percibirse como algo reservado a especialistas y pase a entenderse como una construcción colectiva, viva y en permanente discusión.</p>
+              </div>
+
+              <nav class="pasar" aria-label="Otras noticias">
+                <a class="ant" data-id="n5"><small>Anterior</small><strong>Estaciones Espaciales</strong></a>
+                <a class="sig" data-id="n7"><small>Siguiente</small><strong>Libro Sanguinetti</strong></a>
+              </nav>
+            </article>
+            <article class="nota" id="n7" tabindex="-1">
+              <span class="chip chip-cul">Cultura</span>
+              <h1>Se presenta «Memorias de una pasión», un recorrido por el arte uruguayo</h1>
+              <p class="meta-nota">Artes visuales · Presentación de libro</p>
+              <p class="lead">
+                La actividad reunió a artistas, gestores culturales y público en torno a una mirada personal
+                sobre la plástica nacional.
+              </p>
+
+              <figure class="foto">
+                <img src="imagenes/auditorio.jpeg" alt="Sala de teatro vacía, con butacas en primer plano y el escenario al fondo" loading="lazy"
+                     onerror="this.style.display='none';this.parentElement.classList.add('sin-imagen')">
+                <figcaption class="foto-placeholder">
+                  <span class="ph-icono">🖼</span>
+                  <strong>Espacio reservado para la imagen</strong>
+                  <span>imagenes/auditorio.jpeg</span>
+                </figcaption>
+              </figure>
+
+              <div class="cuerpo">
+                <p>La presentación del libro «Memorias de una pasión» reunió a un público diverso en una sala colmada, con la presencia de artistas, docentes y gestores culturales. La actividad se desarrolló en un clima distendido y combinó lecturas, comentarios y anécdotas sobre el proceso de escritura.</p>
+                <p>El volumen propone un recorrido personal por la historia del arte uruguayo, con especial atención a las obras, los talleres y los vínculos que marcaron distintas generaciones de artistas. Durante la presentación se destacó la importancia de conservar y difundir material documental que muchas veces permanece en archivos privados.</p>
+                <p>Los organizadores anunciaron que el libro estará disponible en bibliotecas públicas y que se prevén nuevas instancias de presentación en el interior del país.</p>
+              </div>
+
+              <nav class="pasar" aria-label="Otras noticias">
+                <a class="ant" data-id="n6"><small>Anterior</small><strong>Día del Patrimonio 2025</strong></a>
+                <a class="sig" data-id="n8"><small>Siguiente</small><strong>Imputación Bellas Artes</strong></a>
+              </nav>
+            </article>
+            <article class="nota" id="n8" tabindex="-1">
+              <span class="chip chip-cul">Cultura</span>
+              <h1>Un caso judicial reabre el debate sobre los límites de la expresión
+                 en el ámbito educativo</h1>
+              <p class="meta-nota">Cultura y justicia</p>
+              <p class="lead">
+                La imputación de un docente por expresiones vertidas en clase puso el foco en la tensión entre
+                libertad de cátedra, responsabilidad y derecho.
+              </p>
+
+              <figure class="foto">
+                <img src="imagenes/danza.jpeg" alt="Bailarines sobre un escenario, uno de ellos en silla de ruedas" loading="lazy"
+                     onerror="this.style.display='none';this.parentElement.classList.add('sin-imagen')">
+                <figcaption class="foto-placeholder">
+                  <span class="ph-icono">🖼</span>
+                  <strong>Espacio reservado para la imagen</strong>
+                  <span>imagenes/danza.jpeg</span>
+                </figcaption>
+              </figure>
+
+              <div class="cuerpo">
+                <p>La imputación de un docente por expresiones realizadas en un espacio de formación artística generó un intenso debate público. Organizaciones gremiales, estudiantes y especialistas en derecho expresaron posiciones encontradas sobre los alcances de la libertad de expresión en el ámbito educativo.</p>
+                <p>El caso reavivó una discusión recurrente: cómo se articulan la libertad de cátedra, el respeto a la dignidad de las personas y la responsabilidad legal de quienes enseñan. Distintas voces reclamaron que el conflicto se resuelva en el ámbito pedagógico y no exclusivamente en sede judicial.</p>
+                <p>Desde el portal seguimos el desarrollo del caso con la premisa de informar sin exponer datos personales y dando espacio a las distintas perspectivas involucradas.</p>
+              </div>
+
+              <nav class="pasar" aria-label="Otras noticias">
+                <a class="ant" data-id="n7"><small>Anterior</small><strong>Libro Sanguinetti</strong></a>
+                <a class="sig" data-id="n9"><small>Siguiente</small><strong>Movida Joven</strong></a>
+              </nav>
+            </article>
+            <article class="nota" id="n9" tabindex="-1">
+              <span class="chip chip-cul">Cultura</span>
+              <h1>Movida Joven abre sus inscripciones para artistas y colectivos</h1>
+              <p class="meta-nota">Convocatoria · Juventud y arte</p>
+              <p class="lead">
+                El programa de la Intendencia convoca a jóvenes creadores en música, teatro, danza, artes
+                visuales y letras.
+              </p>
+
+              <figure class="foto">
+                <img src="imagenes/teatro.jpeg" alt="Sala de teatro colmada de público, con varios niveles de balcones" loading="lazy"
+                     onerror="this.style.display='none';this.parentElement.classList.add('sin-imagen')">
+                <figcaption class="foto-placeholder">
+                  <span class="ph-icono">🖼</span>
+                  <strong>Espacio reservado para la imagen</strong>
+                  <span>imagenes/teatro.jpeg</span>
+                </figcaption>
+              </figure>
+
+              <div class="cuerpo">
+                <p>Movida Joven abrió una nueva edición de su convocatoria dirigida a artistas y colectivos de todo el país. El programa busca dar visibilidad a propuestas creadas por jóvenes, con espacios de formación, circulación y encuentro entre pares.</p>
+                <p>Las inscripciones se organizan por categorías que abarcan música, teatro, danza, artes visuales, letras y proyectos interdisciplinarios. Además de los espectáculos y muestras, la convocatoria incluye instancias de acompañamiento técnico y tutorías a cargo de referentes de cada disciplina.</p>
+
+              <figure class="foto">
+                <img src="imagenes/bailarines.jpeg" alt="Grupo de bailarines sobre un escenario oscuro" loading="lazy"
+                     onerror="this.style.display='none';this.parentElement.classList.add('sin-imagen')">
+                <figcaption class="foto-placeholder">
+                  <span class="ph-icono">🖼</span>
+                  <strong>Espacio reservado para la imagen</strong>
+                  <span>imagenes/bailarines.jpeg</span>
+                </figcaption>
+              </figure>
+                <p>Desde la organización señalaron que la prioridad es ampliar la participación de jóvenes de barrios periféricos y de localidades del interior, facilitando apoyos para traslados y materiales.</p>
+              </div>
+
+              <nav class="pasar" aria-label="Otras noticias">
+                <a class="ant" data-id="n8"><small>Anterior</small><strong>Imputación Bellas Artes</strong></a>
+                <a class="sig" data-id="n10"><small>Siguiente</small><strong>Homenaje a Rubén Rada</strong></a>
+              </nav>
+            </article>
+            <article class="nota" id="n10" tabindex="-1">
+              <span class="chip chip-cul">Cultura</span>
+              <h1>Homenaje a Rubén Rada: el legado del Negro en la música uruguaya</h1>
+              <p class="meta-nota">Música y memoria</p>
+              <p class="lead">
+                Músicos de distintas generaciones se reunieron para repasar la obra de una figura que cambió
+                la forma de entender el candombe, el rock y la canción popular.
+              </p>
+
+              <figure class="foto">
+                <img src="imagenes/multitud.jpeg" alt="Multitud disfrutando de un espectáculo al aire libre" loading="lazy"
+                     onerror="this.style.display='none';this.parentElement.classList.add('sin-imagen')">
+                <figcaption class="foto-placeholder">
+                  <span class="ph-icono">🖼</span>
+                  <strong>Espacio reservado para la imagen</strong>
+                  <span>imagenes/multitud.jpeg</span>
+                </figcaption>
+              </figure>
+
+              <div class="cuerpo">
+                <p>Un homenaje a Rubén Rada reunió a músicos, investigadores y público en una jornada dedicada a repasar su trayectoria. El encuentro recorrió distintas etapas: desde sus primeras incursiones en el candombe y el jazz hasta su paso por bandas emblemáticas y su extensa carrera solista.</p>
+                <p>Los participantes coincidieron en señalar su capacidad para cruzar géneros sin perder identidad, y su influencia en varias generaciones de artistas que encontraron en su obra una forma de combinar la raíz afrouruguaya con lenguajes contemporáneos.</p>
+                <p>La actividad incluyó interpretaciones en vivo, proyecciones de archivo y una mesa de conversación sobre la importancia de preservar los registros sonoros y audiovisuales de la música popular uruguaya.</p>
+              </div>
+
+              <nav class="pasar" aria-label="Otras noticias">
+                <a class="ant" data-id="n9"><small>Anterior</small><strong>Movida Joven</strong></a>
+              </nav>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="pagina" id="pagina-asistente">
+    <section class="franja-celeste">
+      <div class="contenedor asistente-grid">
+        <div>
+          <span class="eyebrow">Inteligencia artificial</span>
+          <h2>Asistente Virtual de Noticias</h2>
+          <p>
+            Preguntale al asistente sobre cualquier tema publicado en el portal. Busca por palabra clave,
+            categoría o concepto, y te devuelve las noticias relacionadas con un resumen.
+          </p>
+          <p>
+            Podés escribir una pregunta libre o usar alguna de las sugerencias para empezar.
+          </p>
+          <div class="sugerencias" aria-label="Preguntas sugeridas">
+            <button type="button" class="chip-sugerida" data-pregunta="baterías de sodio">Baterías de sodio</button>
+            <button type="button" class="chip-sugerida" data-pregunta="edición genética">Edición genética</button>
+            <button type="button" class="chip-sugerida" data-pregunta="patrimonio">Día del Patrimonio</button>
+            <button type="button" class="chip-sugerida" data-pregunta="Rubén Rada">Rubén Rada</button>
+            <button type="button" class="chip-sugerida" data-pregunta="inteligencia artificial">IA</button>
+            <button type="button" class="chip-sugerida" data-pregunta="tecnología">Toda tecnología</button>
+            <button type="button" class="chip-sugerida" data-pregunta="cultura">Toda cultura</button>
+          </div>
+        </div>
+
+        <div class="asistente-panel">
+          <div class="chat-cabecera">
+            <span class="chat-avatar" aria-hidden="true">🤖</span>
+            <div>
+              <strong>Asistente de Jóvenes Creativos</strong>
+              <span class="chat-estado" id="chat-estado">Conectando…</span>
+            </div>
+          </div>
+
+          <div id="chat-log" class="chat-log" role="log" aria-live="polite" aria-label="Conversación con el asistente"></div>
+
+          <form id="chat-form" class="asistente-campo" novalidate>
+            <label for="pregunta-ia" class="visualmente-oculto">Tu pregunta</label>
+            <input type="text" id="pregunta-ia" maxlength="300" placeholder="Ej: ¿qué noticias hay sobre baterías?" autocomplete="off">
+            <button type="submit" id="btn-consultar">Preguntar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="generador contenedor" aria-labelledby="titulo-generador">
+      <span class="eyebrow">Generador de textos</span>
+      <h2 id="titulo-generador">Textos listos para publicar</h2>
+      <p class="lead" style="max-width:62ch">
+        Elegí una noticia y un formato: el asistente redacta el texto con el tono de Jóvenes Creativos
+        (cercano, dinámico y accesible).
+      </p>
+
+      <form id="gen-form" class="gen-form" novalidate>
+        <div class="campo">
+          <label for="gen-noticia">Noticia</label>
+          <select id="gen-noticia"></select>
+        </div>
+        <div class="campo">
+          <label for="gen-formato">Formato</label>
+          <select id="gen-formato">
+            <option value="redes">Publicación para redes</option>
+            <option value="titulares">Titulares alternativos</option>
+            <option value="newsletter">Párrafo para newsletter</option>
+          </select>
+        </div>
+        <button type="submit" class="boton boton-primario" id="gen-btn">Generar texto</button>
+      </form>
+
+      <div id="gen-salida" aria-live="polite"></div>
+    </section>
+  </div>
+  <div class="pagina" id="pagina-contacto">
+    <section class="contacto">
+      <div class="contenedor">
+        <span class="eyebrow">Hablemos</span>
+        <h2>Contacto</h2>
+        <p class="lead" style="max-width:62ch">
+          ¿Tenés una noticia para compartir, una corrección o una propuesta de colaboración?
+          Escribinos por cualquiera de estos canales o completá el formulario.
+        </p>
+
+        <div class="contacto-grid" style="margin-top:34px">
+
+          <div>
+            <ul class="datos-contacto">
+              <li>
+                <span class="icono" aria-hidden="true">✉</span>
+                <div>
+                  <strong>Correo general</strong>
+                  <a href="mailto:aaguiar1833@gmail.com">aaguiar1833@gmail.com</a>
+                </div>
+              </li>
+              <li>
+                <span class="icono" aria-hidden="true">📝</span>
+                <div>
+                  <strong>Redacción y prensa</strong>
+                  <a href="mailto:aaguiar1833@gmail.com">aaguiar1833@gmail.com</a>
+                </div>
+              </li>
+              <li>
+                <span class="icono" aria-hidden="true">☎</span>
+                <div>
+                  <strong>Teléfono</strong>
+                  <a href="tel:24860226">24860226</a>
+                  <span style="display:block;color:var(--tinta-2);font-size:.85rem">Lunes a viernes, 9:00 a 18:00</span>
+                </div>
+              </li>
+              <li>
+                <span class="icono cul" aria-hidden="true">📍</span>
+                <div>
+                  <strong>Redacción</strong>
+                  <span>Neyra 3649</span>
+                  <span style="display:block;color:var(--tinta-2);font-size:.85rem">Montevideo, Uruguay · CP 11600</span>
+                </div>
+              </li>
+              <li>
+                <span class="icono cul" aria-hidden="true">💬</span>
+                <div>
+                  <strong>WhatsApp de la comunidad</strong>
+                  <a href="tel:091514474">091514474</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tarjeta-form">
+            <h3 style="margin-bottom:18px">Enviar un mensaje</h3>
+
+            <form id="form-contacto" novalidate>
+              <div class="trampa" aria-hidden="true"><label>No completar este campo<input type="text" name="web" id="c-web" tabindex="-1" autocomplete="off"></label></div>
+              <div class="campo-doble">
+                <div class="campo">
+                  <label for="c-nombre">Nombre y apellido</label>
+                  <input type="text" id="c-nombre" name="nombre" placeholder="Tu nombre" maxlength="100" autocomplete="name" required>
+                </div>
+                <div class="campo">
+                  <label for="c-email">Correo electrónico</label>
+                  <input type="email" id="c-email" name="email" placeholder="nombre@correo.com" maxlength="160" autocomplete="email" required>
+                </div>
+              </div>
+
+              <div class="campo">
+                <label for="c-asunto">Asunto</label>
+                <select id="c-asunto" name="asunto">
+                  <option>Consulta general</option>
+                  <option>Propuesta de nota o entrevista</option>
+                  <option>Corrección o errata</option>
+                  <option>Colaboración o voluntariado</option>
+                  <option>Publicidad y alianzas</option>
+                  <option>Problema técnico en el sitio</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+
+              <div class="campo">
+                <label for="c-mensaje">Mensaje</label>
+                <textarea id="c-mensaje" name="mensaje" placeholder="Contanos en qué podemos ayudarte…" maxlength="3000" required></textarea>
+              </div>
+
+              <label class="consentimiento" for="c-acepto">
+                <input type="checkbox" id="c-acepto" required>
+                <span>Acepto que mis datos sean utilizados únicamente para responder esta consulta.</span>
+              </label>
+
+              <button type="submit" id="c-enviar" class="boton boton-primario" style="width:100%;justify-content:center">
+                Enviar mensaje
+              </button>
+
+              <div id="respuesta-contacto" aria-live="polite"></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="pagina" id="pagina-admin">
+    <section class="admin">
+      <div class="contenedor">
+        <span class="eyebrow">Zona restringida</span>
+        <h2>Panel de administración</h2>
+
+        <div id="admin-login" class="panel-oscuro login-card">
+          <h3>Iniciá sesión</h3>
+          <p class="login-ayuda">Esta zona es solo para el equipo de redacción.</p>
+          <form id="form-login" novalidate>
+            <div class="campo">
+              <label for="l-usuario">Usuario</label>
+              <input type="text" id="l-usuario" autocomplete="username" required>
+            </div>
+            <div class="campo">
+              <label for="l-clave">Contraseña</label>
+              <input type="password" id="l-clave" autocomplete="current-password" required>
+            </div>
+            <button type="submit" id="l-enviar" class="boton boton-claro" style="width:100%;justify-content:center">Ingresar</button>
+            <div id="respuesta-login" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <div id="admin-panel" hidden>
+        <div class="admin-barra">
+          <span id="admin-modo" class="insignia"></span>
+          <span id="admin-usuario" class="admin-usuario"></span>
+          <button type="button" id="btn-salir" class="boton boton-fantasma">Cerrar sesión</button>
+        </div>
+        <p style="max-width:66ch">
+          Desde este panel se publican nuevas notas en el catálogo del portal. Los artículos creados aquí
+          aparecen de inmediato en el menú lateral y en el visor de noticias.
+        </p>
+
+        <div class="estadisticas">
+          <div class="estadistica"><b id="stat-total">10</b><span>Noticias</span></div>
+          <div class="estadistica"><b id="stat-tec">5</b><span>Tecnología</span></div>
+          <div class="estadistica"><b id="stat-cul">5</b><span>Cultura</span></div>
+          <div class="estadistica"><b id="stat-msg">0</b><span>Mensajes</span></div>
+        </div>
+
+        <div class="admin-grid">
+
+          <div class="panel-oscuro">
+            <h3>Publicar una noticia</h3>
+
+            <form id="form-admin" novalidate>
+              <div class="campo">
+                <label for="a-titulo">Título</label>
+                <input type="text" id="a-titulo" placeholder="Ej: Nuevos avances en energía solar" required>
+              </div>
+
+              <div class="campo-doble">
+                <div class="campo">
+                  <label for="a-categoria">Categoría</label>
+                  <select id="a-categoria">
+                    <option value="Tecnología">Tecnología</option>
+                    <option value="Cultura">Cultura</option>
+                  </select>
+                </div>
+                <div class="campo">
+                  <label for="a-imagen">Archivo de imagen</label>
+                  <input type="text" id="a-imagen" placeholder="imagenes/mi-imagen.jpg">
+                </div>
+              </div>
+
+              <div class="campo">
+                <label for="a-etiquetas">Etiquetas (separadas por coma)</label>
+                <input type="text" id="a-etiquetas" placeholder="energía, solar, innovación">
+              </div>
+
+              <div class="campo">
+                <label for="a-resumen">Resumen / copete</label>
+                <textarea id="a-resumen" style="min-height:80px" placeholder="Una o dos líneas que resuman la noticia…" required></textarea>
+              </div>
+
+              <div class="campo">
+                <label for="a-cuerpo">Cuerpo de la noticia</label>
+                <textarea id="a-cuerpo" placeholder="Escribí los párrafos. Separá cada párrafo con un salto de línea." required></textarea>
+              </div>
+
+              <div style="display:flex;gap:10px;flex-wrap:wrap">
+                <button type="submit" class="boton boton-claro">Publicar noticia</button>
+                <button type="reset" class="boton boton-fantasma">Limpiar formulario</button>
+              </div>
+
+              <div id="respuesta-admin" aria-live="polite"></div>
+            </form>
+          </div>
+
+          <div class="panel-oscuro">
+            <h3>Noticias publicadas desde el panel</h3>
+
+            <div class="tabla-scroll"><table class="tabla-admin">
+              <thead>
+                <tr>
+                  <th scope="col">Título</th>
+                  <th scope="col">Categoría</th>
+                  <th scope="col">Acción</th>
+                </tr>
+              </thead>
+              <tbody id="cuerpo-tabla-admin">
+                <tr><td class="vacio" colspan="3">Todavía no publicaste noticias desde este panel.</td></tr>
+              </tbody>
+            </table></div>
+
+            <p class="nota-admin" id="nota-admin">
+              Nota: las publicaciones se guardan en el almacenamiento local del navegador. Si borrás los datos
+              del sitio, se eliminarán. Las diez noticias originales del portal no pueden borrarse.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="panel-oscuro mensajes-panel">
+          <h3>Mensajes recibidos desde Contacto</h3>
+          <div class="tabla-scroll">
+            <table class="tabla-admin">
+              <thead>
+                <tr>
+                  <th scope="col">Persona</th>
+                  <th scope="col">Mensaje</th>
+                  <th scope="col">Acción</th>
+                </tr>
+              </thead>
+              <tbody id="cuerpo-tabla-mensajes">
+                <tr><td class="vacio" colspan="3">Todavía no llegaron mensajes.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div><!-- /#admin-panel -->
+      </div>
+    </section>
+  </div>
+  <div class="pagina" id="pagina-apendice">
+    <section class="apendice">
+      <div class="contenedor">
+        <span class="eyebrow">Documentación del proyecto</span>
+        <h2>Apéndice</h2>
+        <p class="lead" style="max-width:66ch">
+          Material complementario: glosario de términos, fuentes consultadas y criterios de accesibilidad
+          aplicados al portal.
+        </p>
+
+        <div class="apendice-grid">
+
+          <div class="bloque-apendice">
+            <h3>A · Glosario de términos</h3>
+            <dl class="glosario">
+              <dt>Base editing (edición de bases)</dt>
+              <dd>Técnica de edición genética que modifica una letra específica del ADN sin cortar la doble cadena, lo que reduce efectos no deseados.</dd>
+
+              <dt>Batería de estado sólido</dt>
+              <dd>Batería que reemplaza el electrolito líquido por un material sólido. Promete mayor seguridad, más autonomía y cargas más rápidas.</dd>
+
+              <dt>Batería de sodio</dt>
+              <dd>Acumulador que utiliza sodio en lugar de litio. Es más abundante y económico, aunque con menor densidad energética.</dd>
+
+              <dt>Captura de carbono</dt>
+              <dd>Conjunto de tecnologías que retiran dióxido de carbono de la atmósfera o de fuentes industriales y lo almacenan de forma segura.</dd>
+
+              <dt>Centro de datos de hiperescala</dt>
+              <dd>Instalación de gran tamaño diseñada para alojar miles de servidores, habitualmente asociada al entrenamiento de modelos de inteligencia artificial.</dd>
+
+              <dt>Medicina de precisión</dt>
+              <dd>Enfoque médico que adapta los tratamientos al perfil genético y molecular de cada paciente.</dd>
+
+              <dt>SXSW</dt>
+              <dd>Festival anual que se realiza en Austin, Texas, dedicado a la tecnología, el cine, la música y la cultura.</dd>
+
+              <dt>MIT Technology Review</dt>
+              <dd>Publicación del Instituto Tecnológico de Massachusetts especializada en tecnología e innovación. Elabora anualmente su lista de tecnologías disruptivas.</dd>
+
+              <dt>Movida Joven</dt>
+              <dd>Programa de convocatoria y circulación de propuestas artísticas creadas por jóvenes.</dd>
+            </dl>
+          </div>
+
+          <div class="bloque-apendice">
+            <h3>B · Fuentes y referencias</h3>
+            <ul class="lista-fuentes">
+              <li>
+                <strong>MIT Technology Review</strong><br>
+                Selección anual de las diez tecnologías más disruptivas. Anuncio presentado durante el festival SXSW, Austin, marzo de 2026.
+              </li>
+              <li>
+                <strong>Cobertura propia del portal</strong><br>
+                Notas redactadas por el equipo de Jóvenes Creativos a partir de la lista del MIT y de agenda cultural local.
+              </li>
+              <li>
+                <strong>Agenda cultural</strong><br>
+                Programación del Día del Patrimonio, convocatorias artísticas juveniles y actividades de presentación de libros.
+              </li>
+              <li>
+                <strong>Material de archivo</strong><br>
+                Registros sonoros y audiovisuales de música popular uruguaya consultados para la nota de homenaje.
+              </li>
+              <li>
+                <strong>Nota metodológica</strong><br>
+                Las imágenes del portal son de carácter ilustrativo y se alojan en la carpeta <code>imagenes/</code>. Cuando una imagen no está disponible, el sistema muestra un espacio reservado.
+              </li>
+            </ul>
+          </div>
+
+          <div class="bloque-apendice">
+            <h3>C · Accesibilidad aplicada</h3>
+            <ul class="lista-fuentes">
+              <li>Enlace «Saltar al contenido» al comienzo del documento.</li>
+              <li>Estructura semántica con <code>header</code>, <code>main</code>, <code>section</code>, <code>article</code>, <code>aside</code> y <code>footer</code>.</li>
+              <li>Uso de <code>aria-current</code>, <code>aria-pressed</code> y <code>aria-live</code> para estados dinámicos.</li>
+              <li>Contraste de color verificado y foco visible en todos los controles.</li>
+              <li>Respeto por <code>prefers-reduced-motion</code> para quienes prefieren menos animaciones.</li>
+              <li>Textos alternativos descriptivos en todas las imágenes.</li>
+              <li>Navegación por teclado en todos los elementos interactivos.</li>
+            </ul>
+          </div>
+
+          <div class="bloque-apendice">
+            <h3>D · Cómo usar el asistente</h3>
+            <ul class="lista-fuentes">
+              <li>Escribí una palabra clave (por ejemplo: <em>baterías</em>, <em>Rada</em>, <em>patrimonio</em>).</li>
+              <li>También podés escribir una categoría completa: <em>tecnología</em> o <em>cultura</em>.</li>
+              <li>También podés pedirle una recomendación («recomendame algo») o los datos de contacto de la redacción.</li>
+              <li>El asistente responde con las notas relacionadas, un resumen y un enlace para leerlas.</li>
+              <li>En «Textos listos para publicar» generá una publicación para redes, titulares o un párrafo de newsletter.</li>
+              <li>Si no encuentra coincidencias, sugiere probar con otro término.</li>
+            </ul>
+
+            <p class="creditos">
+              <strong>Créditos:</strong> Proyecto desarrollado por Ana Laura Aguiar en el marco del proyecto final avanzado del programa «Jóvenes creativos», 2026. Proyecto final avanzado.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer class="pie">
+  <div class="contenedor pie-interior">
+    <p class="pie-marca">Jóvenes Creativos</p>
+
+    <nav aria-label="Pie de página">
+      <a data-pagina="inicio">Inicio</a>
+      <a data-pagina="noticias">Noticias</a>
+      <a data-pagina="asistente">Asistente</a>
+      <a data-pagina="contacto">Contacto</a>
+      <a data-pagina="admin">Admin</a>
+      <a data-pagina="apendice">Apéndice</a>
+    </nav>
+
+    <p class="pie-legal">&copy; 2026 Jóvenes Creativos · Proyecto Final Avanzado · Montevideo, Uruguay <span id="modo-pie" class="modo-pie"></span></p>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/noticias-base.js"></script>
+<script src="js/asistente-local.js"></script>
+<script src="js/api.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
