@@ -1,0 +1,7 @@
+Imágenes de las noticias del portal (nombres en minúsculas y sin tildes para evitar problemas en GitHub Pages).
+
+n1 feria-robot, antel-5g · n2 nube · n3 aplicaciones · n4 chip-uruguay, zonamerica, jovenes-computadora
+n5 hombre-computadora · n6 candombe, teatro-solis · n7 auditorio · n8 danza · n9 teatro, bailarines · n10 multitud
+
+Para una noticia nueva desde el panel de administración, poné acá la imagen y escribí en el campo Imagen: imagenes/nombre.jpg
+Mientras una imagen no exista, el sitio muestra un recuadro "Espacio reservado para la imagen".
