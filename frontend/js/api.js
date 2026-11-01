@@ -17,7 +17,7 @@
   var base = null;     // URL de la API cuando hay servidor
   var modo = 'demo';   // 'servidor' | 'demo'
 
-  /* ---------- almacenamiento seguro (puede estar bloqueado por el navegador) ---------- */
+
   var memoria = {};
   function leer(storage, clave) {
     try { return storage.getItem(clave); } catch (e) { return memoria[clave] || null; }

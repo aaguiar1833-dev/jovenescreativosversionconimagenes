@@ -1,0 +1,22 @@
+[33m11e4d2d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Cambio de signos de pregunta
+[33m18b2eb1[m Descripción del cambio
+[33m5ffdcab[m Agrega despliegue automático a GitHub Pages
+[33mbfcf8b1[m Agrega las imágenes de las noticias
+[33mebcd113[m Agrega la lógica de navegación, catálogo, chat y panel admin
+[33m83203ad[m Agrega datos de noticias y asistente local
+[33m7cc9c1f[m Agrega configuración y capa de datos del frontend
+[33m425860a[m Agrega estilos responsive y galería de imágenes
+[33m64ec948[m Agrega estructura HTML de todas las páginas del portal
+[33m48ae622[m Agrega pruebas automáticas del backend
+[33mdf542d1[m Conecta las rutas de la API
+[33m845e3ef[m Agrega asistente virtual y generador de textos
+[33m8f33ae1[m Agrega servicios de noticias y contacto
+[33m944c4a8[m Carga las diez noticias base y datos de la marca
+[33m99f8ba9[m Agrega almacenamiento de noticias y mensajes
+[33mb5976ad[m Agrega autenticación firmada y límite de intentos
+[33m8c89c33[m Agrega utilidades HTTP y validación de datos
+[33m7b9bdc8[m Agrega configuración y arranque del servidor
+[33md76dd5c[m Configura el backend y variables de entorno de ejemplo
+[33m1187b68[m Agrega package.json raíz con scripts de prueba
+[33m6c46423[m Agrega README con descripción y estructura
+[33ma8bd1a7[m Agrega .gitignore del proyecto
