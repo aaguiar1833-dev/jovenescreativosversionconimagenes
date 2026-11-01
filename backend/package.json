@@ -1,0 +1,14 @@
+{
+  "name": "jovenes-creativos-backend",
+  "version": "2.0.0",
+  "private": true,
+  "description": "API del portal Jóvenes Creativos: noticias, contacto, login de admin y asistente.",
+  "type": "module",
+  "main": "src/server.js",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test"
+  }
+}
