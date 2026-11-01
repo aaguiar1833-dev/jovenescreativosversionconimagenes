@@ -1,0 +1,12 @@
+{
+  "name": "jovenes-creativos",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Portal Jóvenes Creativos: frontend estático + backend Node sin dependencias.",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "dev": "cd backend && npm run dev",
+    "test": "cd backend && npm test"
+  },
+  "engines": { "node": ">=18" }
+}
