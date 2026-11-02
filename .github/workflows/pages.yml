@@ -1,6 +1,3 @@
-# Publica la carpeta frontend/ en GitHub Pages cada vez que se hace push a la rama main.
-# Antes de publicar corre las pruebas del backend.
-# Requisito (una sola vez): Settings → Pages → Build and deployment → Source: "GitHub Actions".
 name: Pruebas y despliegue en GitHub Pages
 
 on:
