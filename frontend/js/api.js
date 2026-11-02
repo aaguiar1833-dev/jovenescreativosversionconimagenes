@@ -1,13 +1,4 @@
-/**
- * api.js
- * Capa de datos del frontend. La interfaz (app.js) solo habla con window.JC_API y no sabe
- * si los datos vienen del servidor o del navegador:
- *
- *   - Modo "servidor": usa el backend (noticias, contacto, login con sesión firmada, asistente).
- *   - Modo "demo":     sin backend (p. ej. GitHub Pages). Guarda en localStorage y usa el asistente local.
- *
- * Todos los métodos devuelven Promesas. Los errores llevan un mensaje listo para mostrar a la persona.
- */
+
 (function () {
   'use strict';
 
@@ -15,7 +6,7 @@
   var CLAVES = { noticias: 'jc_noticias_admin', mensajes: 'jc_mensajes_lista', token: 'jc_token', sesionDemo: 'jc_sesion_demo' };
 
   var base = null;     // URL de la API cuando hay servidor
-  var modo = 'demo';   // 'servidor' | 'demo'
+  var modo = 'demo';  
 
 
   var memoria = {};
