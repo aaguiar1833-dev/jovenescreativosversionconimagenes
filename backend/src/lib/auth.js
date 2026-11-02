@@ -1,8 +1,4 @@
-/**
- * auth.js
- * Login del administrador con contraseña hasheada (scrypt) y sesiones por token firmado (HMAC-SHA256).
- * No hay librerías externas: solo el módulo crypto de Node.
- */
+
 import crypto from 'node:crypto'
 import { config } from '../config.js'
 import { HttpError } from './http.js'
@@ -10,7 +6,6 @@ import { HttpError } from './http.js'
 const salt = crypto.randomBytes(16)
 const adminHash = crypto.scryptSync(config.adminPassword, salt, 64)
 
-/** Compara dos textos en tiempo constante (hasheándolos antes para igualar el largo). */
 function safeEqual(a, b) {
   const ha = crypto.createHash('sha256').update(String(a)).digest()
   const hb = crypto.createHash('sha256').update(String(b)).digest()
@@ -44,8 +39,6 @@ export function verifyToken(token) {
     return null
   }
 }
-
-/** Exige un token válido en el encabezado Authorization: Bearer <token>. */
 export function requireAuth(req) {
   const header = String(req.headers.authorization || '')
   const payload = verifyToken(header.startsWith('Bearer ') ? header.slice(7) : '')

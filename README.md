@@ -66,7 +66,7 @@ Necesitás **Node 18 o superior** (no hay que instalar paquetes: el backend no t
 ```bash
 cd backend
 npm start
-# abrí http://localhost:4000
+
 ```
 
 El mismo servidor entrega el sitio y la API. Para correr las pruebas: `npm test` (dentro de `backend/`, o en la raíz).
@@ -132,7 +132,6 @@ Una secuencia sugerida, con un commit por paso:
 git init -b main
 git add .gitignore package.json README.md
 git commit -m "chore: estructura inicial y .gitignore"
-# ... repetí git add <archivos> + git commit para cada fila
 git remote add origin https://github.com/TU-USUARIO/NOMBRE-DEL-REPO.git
 git push -u origin main
 ```

@@ -1,9 +1,4 @@
-/**
- * Noticias base del portal (mismas 10 notas que muestra el frontend).
- * El asistente y el generador de textos se apoyan en estos datos.
- * Las noticias creadas desde el panel de administración se guardan aparte
- * (backend/data/news.json) y se suman a esta lista.
- */
+
 export const baseNews = [
   {
     "id": "n1",

@@ -1,9 +1,4 @@
-/**
- * asistente-local.js
- * Copia en el navegador de la lógica del asistente del backend (backend/src/services/assistant.js
- * y generator.js). Se usa en MODO DEMOSTRACIÓN (por ejemplo en GitHub Pages, donde no hay servidor)
- * y como respaldo si el backend no responde. Mantené ambos archivos sincronizados.
- */
+
 (function () {
   'use strict';
 

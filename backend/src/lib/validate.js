@@ -1,12 +1,7 @@
-/**
- * validate.js
- * Validaciones de entrada compartidas por los servicios.
- */
+
 import { HttpError } from './http.js'
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
-/** Devuelve el texto limpio o lanza un 400 con un mensaje claro para la persona usuaria. */
 export function text(value, label, { min = 1, max = 500, required = true } = {}) {
   const clean = typeof value === 'string' ? value.trim() : ''
   if (!clean && !required) return ''

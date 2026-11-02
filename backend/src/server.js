@@ -1,8 +1,4 @@
-/**
- * server.js
- * Punto de entrada: levanta la API (y, por defecto, también sirve la carpeta frontend/).
- * Uso:  cd backend && npm start   →   http://localhost:4000
- */
+
 import { config } from './config.js'
 import { createApp } from './app.js'
 

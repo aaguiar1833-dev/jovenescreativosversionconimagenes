@@ -1,9 +1,4 @@
-/**
- * noticias-base.js
- * Las 10 noticias originales del portal (los artículos completos viven en index.html).
- * Este archivo solo guarda los datos que necesitan el buscador y el asistente.
- * Forma de cada noticia: { id, cat, titulo, corto, resumen, claves[] }
- */
+
 window.JC_NOTICIAS = [
   {
     "id": "n1",

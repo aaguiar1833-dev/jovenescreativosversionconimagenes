@@ -1,14 +1,9 @@
-/**
- * Pruebas de la API. Se ejecutan con:  cd backend && npm test
- * Levantan el servidor en un puerto aleatorio y usan una carpeta de datos temporal.
- */
+
 import { test, before, after } from 'node:test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
-
-// La configuración se lee al importar, así que hay que fijar el entorno antes.
 process.env.DATA_DIR = fs.mkdtempSync(path.join(os.tmpdir(), 'jc-test-'))
 process.env.ADMIN_USER = 'admin'
 process.env.ADMIN_PASSWORD = 'clave-de-prueba'

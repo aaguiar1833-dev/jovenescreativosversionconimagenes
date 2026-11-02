@@ -1,8 +1,4 @@
-/**
- * app.js
- * Crea el servidor HTTP: CORS, enrutado de la API, archivos estáticos del frontend y manejo de errores.
- * Se separa de server.js para poder levantarlo en los tests con un puerto aleatorio.
- */
+
 import http from 'node:http'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -16,7 +12,6 @@ const MIME = {
   '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon', '.txt': 'text/plain; charset=utf-8'
 }
 
-/** Convierte '/api/news/:id' en una expresión regular que captura los parámetros. */
 const compiled = routes.map(([method, pattern, handler]) => {
   const names = []
   const source = pattern.replace(/:([a-zA-Z]+)/g, (_, name) => { names.push(name); return '([^/]+)' })
@@ -32,7 +27,6 @@ function corsHeaders() {
   }
 }
 
-/** Sirve un archivo de frontend/. Protege contra rutas tipo ../../etc/passwd. */
 function serveStatic(req, res, pathname) {
   const relative = decodeURIComponent(pathname === '/' ? '/index.html' : pathname)
   const target = path.normalize(path.join(config.frontendDir, relative))
@@ -66,7 +60,6 @@ export function createApp() {
 
         const match = compiled.find((route) => route.method === req.method && route.regex.test(pathname))
         if (!match) {
-          // Distingue "ruta inexistente" de "método no permitido".
           const knownPath = compiled.some((route) => route.regex.test(pathname))
           throw new HttpError(knownPath ? 405 : 404, knownPath ? 'Método no permitido.' : 'Recurso no encontrado.')
         }

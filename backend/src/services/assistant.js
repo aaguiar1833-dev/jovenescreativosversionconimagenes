@@ -1,12 +1,4 @@
-/**
- * assistant.js
- * Asistente de IA del portal. No es un chatbot genérico: conoce las noticias del portal,
- * los datos de contacto y habla con el tono de la marca (cercano, dinámico y accesible).
- *
- * Funciona por intenciones (saludo, contacto, recomendar...) y, si no detecta ninguna,
- * busca en las noticias con un sistema de puntajes. Esta misma lógica existe en el frontend
- * (frontend/js/asistente-local.js) para que el sitio funcione también en GitHub Pages sin servidor.
- */
+
 import { brand } from '../data/news.js'
 import { listAllNews } from './newsService.js'
 
@@ -29,7 +21,6 @@ export function extractTerms(question) {
 
 const brief = (item) => ({ id: item.id, titulo: item.titulo, cat: item.cat, corto: item.corto })
 
-/** Puntaje de una noticia para una consulta. Los términos de 2 letras (p. ej. "ia") exigen palabra completa. */
 function scoreNews(item, query, terms) {
   const title = normalize(item.titulo)
   const keys = normalize(item.claves.join(' '))

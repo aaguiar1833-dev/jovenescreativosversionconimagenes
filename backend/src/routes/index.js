@@ -1,8 +1,4 @@
-/**
- * routes/index.js
- * Tabla única de rutas de la API. Cada handler recibe { req, params, body, ip } y devuelve
- * { status, data }. Los errores se lanzan como HttpError y los convierte app.js.
- */
+
 import { config } from '../config.js'
 import { HttpError } from '../lib/http.js'
 import { checkCredentials, signToken, requireAuth } from '../lib/auth.js'
@@ -16,10 +12,8 @@ import { generateText } from '../services/generator.js'
 const ok = (data, status = 200) => ({ status, data })
 
 export const routes = [
-  // --- Estado ---------------------------------------------------------------------------
   ['GET', '/api/health', () => ok({ ok: true, servicio: 'jovenes-creativos-api', modo: 'servidor' })],
 
-  // --- Autenticación del administrador ----------------------------------------------------
   ['POST', '/api/auth/login', ({ body, ip }) => {
     rateLimit(ip, 'login', 6, 60_000, 'Demasiados intentos de ingreso.')
     if (!checkCredentials(body.usuario, body.clave)) {
@@ -29,13 +23,11 @@ export const routes = [
   }],
   ['GET', '/api/auth/me', ({ req }) => ok({ usuario: requireAuth(req).usuario })],
 
-  // --- Noticias ---------------------------------------------------------------------------
   ['GET', '/api/news', () => ok(listAllNews())],
   ['GET', '/api/news/:id', ({ params }) => ok(getNews(params.id))],
   ['POST', '/api/news', ({ req, body }) => { requireAuth(req); return ok(createNews(body), 201) }],
   ['DELETE', '/api/news/:id', ({ req, params }) => { requireAuth(req); removeNews(params.id); return ok({ ok: true }) }],
 
-  // --- Contacto ---------------------------------------------------------------------------
   ['POST', '/api/contact', ({ body, ip }) => {
     rateLimit(ip, 'contacto', 5, 10 * 60_000, 'Enviaste varios mensajes seguidos.')
     const record = saveMessage(body)
@@ -44,7 +36,6 @@ export const routes = [
   ['GET', '/api/contact', ({ req }) => { requireAuth(req); return ok(listMessages()) }],
   ['DELETE', '/api/contact/:id', ({ req, params }) => { requireAuth(req); removeMessage(params.id); return ok({ ok: true }) }],
 
-  // --- IA personalizada -------------------------------------------------------------------
   ['POST', '/api/chat', ({ body, ip }) => {
     rateLimit(ip, 'chat', 40, 60_000, 'Estás preguntando muy rápido.')
     const question = typeof body.pregunta === 'string' ? body.pregunta.trim() : ''
@@ -57,7 +48,6 @@ export const routes = [
     return ok(generateText(String(body.noticiaId || ''), String(body.formato || '')))
   }],
 
-  // --- Estadísticas del panel -------------------------------------------------------------
   ['GET', '/api/stats', ({ req }) => {
     requireAuth(req)
     const all = listAllNews()

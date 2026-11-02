@@ -1,15 +1,11 @@
-/**
- * generator.js
- * Generador de textos "listos para usar" a partir de una noticia, con el tono de la marca.
- * Formatos: publicación para redes, titulares alternativos y párrafo para newsletter.
- */
+
 import { brand } from '../data/news.js'
 import { getNews } from './newsService.js'
 import { HttpError } from '../lib/http.js'
 
 export const FORMATS = ['redes', 'titulares', 'newsletter']
 
-/** Convierte una etiqueta ("baterías de sodio") en hashtag (#BateriasDeSodio). */
+
 function hashtag(tag) {
   const clean = String(tag).normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9 ]/g, ' ')
   const words = clean.split(/\s+/).filter(Boolean)

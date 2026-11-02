@@ -1,7 +1,4 @@
-/**
- * contactService.js
- * Mensajes del formulario de contacto: se validan, se guardan en disco y el admin puede leerlos.
- */
+
 import crypto from 'node:crypto'
 import { readCollection, writeCollection } from '../lib/store.js'
 import { HttpError } from '../lib/http.js'
@@ -13,7 +10,6 @@ export const listMessages = () => readCollection(COLLECTION).sort((a, b) => b.re
 export const countMessages = () => readCollection(COLLECTION).length
 
 export function saveMessage(input) {
-  // Campo "trampa" (honeypot): las personas no lo ven, los bots suelen completarlo.
   if (input.web) return { id: 'ignorado', ignorado: true }
 
   if (input.acepto !== true) {

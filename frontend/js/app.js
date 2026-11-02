@@ -1,17 +1,10 @@
-/**
- * app.js
- * Lógica de la interfaz: navegación entre páginas, catálogo, asistente, generador de textos,
- * contacto y panel de administración. Los datos pasan siempre por window.JC_API (ver api.js).
- */
+
 (function () {
   'use strict';
 
   var API = window.JC_API;
   var BASE = window.JC_NOTICIAS || [];
 
-  /* ====================================================================
-     Utilidades
-     ==================================================================== */
   function $(id) { return document.getElementById(id); }
 
   function normalizar(texto) {
@@ -28,14 +21,12 @@
     try { return new Date(iso).toLocaleString('es-UY', { dateStyle: 'short', timeStyle: 'short' }); } catch (e) { return ''; }
   }
 
-  /** Muestra un mensaje (ok / error / info) dentro de un contenedor con aria-live. */
   function aviso(contenedor, tipo, html) {
     if (!contenedor) return;
     var clase = tipo === 'ok' ? 'mensaje-ok' : tipo === 'info' ? 'mensaje-info' : 'mensaje-error';
     contenedor.innerHTML = '<div class="' + clase + '">' + html + '</div>';
   }
 
-  /** Pone un botón en estado "cargando" (deshabilitado + rueda) y devuelve la función para restaurarlo. */
   function cargando(boton, texto) {
     var original = boton.innerHTML;
     boton.disabled = true;
@@ -48,17 +39,11 @@
     };
   }
 
-  /* ====================================================================
-     Estado: noticias (originales + creadas desde el panel)
-     ==================================================================== */
   var notasAdmin = [];
 
   function todas() { return BASE.concat(notasAdmin); }
   function buscarNota(id) { return todas().filter(function (n) { return n.id === id; })[0]; }
 
-  /* ====================================================================
-     Navegación entre páginas
-     ==================================================================== */
   var PAGINAS_VALIDAS = ['inicio', 'noticias', 'asistente', 'contacto', 'admin', 'apendice'];
 
   function mostrarPagina(id, hacerScroll) {
@@ -92,7 +77,6 @@
     if (PAGINAS_VALIDAS.indexOf(id) !== -1) mostrarPagina(id, false);
   });
 
-  /* Accesibilidad con teclado en los enlaces que no tienen href */
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Enter' && e.key !== ' ') return;
     var el = e.target;
@@ -102,9 +86,6 @@
     }
   });
 
-  /* ====================================================================
-     Animaciones de entrada (sutiles; se desactivan con prefers-reduced-motion)
-     ==================================================================== */
   var observador = null;
   var SELECTOR_REVELAR = '.tema, .pilares li, .bloque-apendice, .tarjeta-form, .datos-contacto li, .estadistica, .gen-form, .respuesta-gen';
 
@@ -124,9 +105,6 @@
     });
   }
 
-  /* ====================================================================
-     Inicio y catálogo
-     ==================================================================== */
   function pintarListasInicio() {
     document.querySelectorAll('.lista-notas').forEach(function (ul) {
       var cat = ul.getAttribute('data-lista');
@@ -173,7 +151,6 @@
     if (el) { e.preventDefault(); abrirNota(el.getAttribute('data-abrir')); }
   });
 
-  /* Filtros y buscador del catálogo */
   var inputBuscador = $('buscador');
   var botonesFiltro = document.querySelectorAll('.filtro');
   var sinResultados = $('sin-resultados');
@@ -214,9 +191,8 @@
     });
   }
 
-  /** Agrega una noticia creada desde el panel al menú lateral y al visor. */
   function agregarAlCatalogo(n) {
-    if ($(n.id)) return; // ya está
+    if ($(n.id)) return; 
 
     var lista = $('lista-noticias');
     if (lista) {
@@ -251,7 +227,6 @@
         '<div class="cuerpo">' + parrafos.map(function (p) { return '<p>' + escapar(p) + '</p>'; }).join('') + '</div>';
       visor.appendChild(art);
 
-      // Si la imagen no existe, se muestra el espacio reservado (sin usar atributos onerror en línea).
       var imagen = art.querySelector('img');
       if (imagen) imagen.addEventListener('error', function () {
         imagen.style.display = 'none';
@@ -280,9 +255,6 @@
     aplicarFiltros();
   }
 
-  /* ====================================================================
-     Asistente de IA (chat)
-     ==================================================================== */
   var chatLog = $('chat-log');
   var chatForm = $('chat-form');
   var inputIA = $('pregunta-ia');
@@ -348,7 +320,6 @@
 
   if (chatForm) chatForm.addEventListener('submit', function (e) { e.preventDefault(); preguntar(inputIA.value); });
 
-  // Chips de sugerencia (los fijos de la columna izquierda y los que aparecen dentro del chat)
   document.addEventListener('click', function (e) {
     var chip = e.target.closest('[data-pregunta]');
     if (!chip) return;
@@ -367,9 +338,6 @@
     }));
   }
 
-  /* ====================================================================
-     Generador de textos
-     ==================================================================== */
   var genForm = $('gen-form');
   var genSelect = $('gen-noticia');
   var genSalida = $('gen-salida');
@@ -420,10 +388,6 @@
         .then(restaurar);
     });
   }
-
-  /* ====================================================================
-     Contacto
-     ==================================================================== */
   var formContacto = $('form-contacto');
   var respuestaContacto = $('respuesta-contacto');
 
@@ -459,9 +423,6 @@
     });
   }
 
-  /* ====================================================================
-     Panel de administración (con login)
-     ==================================================================== */
   var adminLogin = $('admin-login');
   var adminPanel = $('admin-panel');
   var formLogin = $('form-login');
@@ -517,7 +478,6 @@
       : 'Modo demostración: las publicaciones y los mensajes se guardan en el almacenamiento local de este navegador. Si borrás los datos del sitio, se eliminarán. Las diez noticias originales no pueden borrarse.';
   }
 
-  /** Cierra la sesión (por voluntad propia o porque el servidor dijo 401). */
   function cerrarSesion(mensaje) {
     API.logout();
     mostrarVistaAdmin();
@@ -530,7 +490,6 @@
     aviso(contenedor, 'error', escapar((err && err.message) || 'Ocurrió un error.'));
   }
 
-  /** Carga noticias y mensajes del panel; muestra "Cargando…" mientras espera. */
   function refrescarAdmin() {
     mostrarVistaAdmin();
     if (!API.haySesion()) return Promise.resolve();
@@ -625,9 +584,6 @@
       .catch(function (err) { boton.disabled = false; manejarErrorAdmin(err, respuestaAdmin); });
   }
 
-  /* ====================================================================
-     Arranque
-     ==================================================================== */
   function pintarModo() {
     var servidor = API.modo() === 'servidor';
     $('chat-estado').textContent = servidor ? 'En línea · conectado al servidor' : 'En línea · modo demostración';
@@ -636,7 +592,7 @@
   }
 
   function init() {
-    // 1) La página se muestra enseguida, sin esperar al servidor.
+
     var hash = location.hash.replace('#', '');
     mostrarPagina(PAGINAS_VALIDAS.indexOf(hash) !== -1 ? hash : 'inicio', false);
     pintarListasInicio();
@@ -646,10 +602,9 @@
     actualizarEstadisticas(0);
     activarAnimaciones();
 
-    // 2) En segundo plano se detecta si hay servidor y se cargan las notas creadas desde el panel.
     API.iniciar().then(function () {
       pintarModo();
-      return API.listarNoticiasAdmin().then(sincronizarCatalogo).catch(function () { /* se queda con las 10 originales */ });
+      return API.listarNoticiasAdmin().then(sincronizarCatalogo).catch(function () {  });
     }).then(function () {
       if (location.hash === '#admin') return refrescarAdmin();
     }).then(function () { mostrarVistaAdmin(); });

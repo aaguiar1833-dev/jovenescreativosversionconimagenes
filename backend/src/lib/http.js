@@ -1,9 +1,4 @@
-/**
- * http.js
- * Utilidades mínimas para trabajar con el módulo http de Node sin frameworks.
- */
 
-/** Error con código HTTP: los handlers lo lanzan y el servidor lo convierte en respuesta JSON. */
 export class HttpError extends Error {
   constructor(status, message) {
     super(message)
@@ -22,7 +17,6 @@ export function sendJson(res, status, data, headers = {}) {
   res.end(body)
 }
 
-/** Lee el cuerpo de la petición como JSON, con un tope de tamaño para evitar abusos. */
 export function readJson(req, limitBytes = 64 * 1024) {
   return new Promise((resolve, reject) => {
     let size = 0
@@ -49,7 +43,6 @@ export function readJson(req, limitBytes = 64 * 1024) {
   })
 }
 
-/** IP del cliente (solo confía en X-Forwarded-For si TRUST_PROXY=true). */
 export function clientIp(req, trustProxy) {
   if (trustProxy) {
     const forwarded = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim()

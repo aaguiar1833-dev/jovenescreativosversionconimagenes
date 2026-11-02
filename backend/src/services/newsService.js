@@ -1,7 +1,4 @@
-/**
- * newsService.js
- * Noticias base (fijas) + noticias publicadas desde el panel de administración (persistidas).
- */
+
 import crypto from 'node:crypto'
 import { baseNews, brand } from '../data/news.js'
 import { readCollection, writeCollection } from '../lib/store.js'

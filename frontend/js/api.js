@@ -5,7 +5,7 @@
   var CFG = window.JC_CONFIG || {};
   var CLAVES = { noticias: 'jc_noticias_admin', mensajes: 'jc_mensajes_lista', token: 'jc_token', sesionDemo: 'jc_sesion_demo' };
 
-  var base = null;     // URL de la API cuando hay servidor
+  var base = null;     
   var modo = 'demo';  
 
 
@@ -33,7 +33,6 @@
     return e;
   }
 
-  /* ---------- peticiones al servidor ---------- */
   function pedir(ruta, opciones) {
     opciones = opciones || {};
     var controlador = new AbortController();
@@ -60,7 +59,6 @@
     });
   }
 
-  /** Prueba si una dirección es realmente nuestra API (responde JSON con ok:true). */
   function probar(url) {
     var c = new AbortController();
     var t = setTimeout(function () { c.abort(); }, 2500);
@@ -91,7 +89,6 @@
     return siguiente(0);
   }
 
-  /* ---------- demo: login local ---------- */
   function sha256(texto) {
     if (!window.crypto || !window.crypto.subtle) {
       return Promise.reject(error('Tu navegador no permite validar la contraseña en este contexto. Abrí el sitio desde https o localhost.'));
@@ -100,13 +97,10 @@
       return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
     });
   }
-
-  /* ---------- API pública ---------- */
   var API = {
     iniciar: iniciar,
     modo: function () { return modo; },
 
-    /* Sesión */
     haySesion: function () {
       return modo === 'servidor' ? !!leer(sessionStorage, CLAVES.token) : leer(sessionStorage, CLAVES.sesionDemo) === '1';
     },
@@ -134,7 +128,6 @@
       borrar(sessionStorage, 'jc_usuario');
     },
 
-    /* Noticias creadas desde el panel (las 10 originales viven en index.html) */
     listarNoticiasAdmin: function () {
       if (modo === 'servidor') {
         var baseIds = (window.JC_NOTICIAS || []).map(function (n) { return n.id; });
@@ -168,11 +161,10 @@
       return Promise.resolve({ ok: true });
     },
 
-    /* Contacto */
     enviarContacto: function (d) {
       if (modo === 'servidor') return pedir('/contact', { method: 'POST', body: d });
 
-      if (CFG.CONTACT_FORM_URL) { // servicio externo de formularios (Formspree y similares)
+      if (CFG.CONTACT_FORM_URL) { 
         return fetch(CFG.CONTACT_FORM_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -200,12 +192,11 @@
       return Promise.resolve({ ok: true });
     },
 
-    /* IA: asistente y generador. Si el servidor falla, se usa la copia local para no dejar al usuario sin respuesta. */
     chat: function (pregunta, noticias) {
       var local = function () { return window.JC_ASISTENTE.responder(pregunta, noticias); };
       if (modo !== 'servidor') return Promise.resolve(local());
       return pedir('/chat', { method: 'POST', body: { pregunta: pregunta } }).catch(function (e) {
-        if (e.status === 0) return local(); // sin conexión: respaldo local
+        if (e.status === 0) return local();
         throw e;
       });
     },

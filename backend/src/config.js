@@ -1,8 +1,4 @@
-/**
- * config.js
- * Lee la configuración desde variables de entorno (y desde backend/.env si existe).
- * Todo el resto del backend importa los valores desde acá, así hay un único lugar donde mirar.
- */
+
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
@@ -11,7 +7,6 @@ import { fileURLToPath } from 'node:url'
 const here = path.dirname(fileURLToPath(import.meta.url))
 export const BACKEND_DIR = path.resolve(here, '..')
 
-/** Carga un archivo .env sencillo (CLAVE=valor). No pisa variables que ya existan. */
 function loadEnvFile(file) {
   if (!fs.existsSync(file)) return
   for (const line of fs.readFileSync(file, 'utf8').split(/\r?\n/)) {
@@ -35,7 +30,6 @@ export const config = {
   adminPassword: process.env.ADMIN_PASSWORD || DEFAULT_PASSWORD,
   usingDefaultPassword: !process.env.ADMIN_PASSWORD,
 
-  // Si no hay secreto configurado se genera uno aleatorio: las sesiones valen hasta el próximo reinicio.
   tokenSecret: process.env.TOKEN_SECRET || crypto.randomBytes(32).toString('hex'),
   tokenTtlMs: 2 * 60 * 60 * 1000, // 2 horas
 
